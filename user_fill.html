@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/user_fill.css">
+
+<script type="text/javascript" src=js/get_by_user_onload.js></script>
+<script type="text/javascript" src=js/Edit.js></script>
+<script type="text/javascript" src=js/Add_Skill_Language.js></script>
+
+<script type="text/javascript">
+
+function start()
+{
+  //var name_by_user=parent.window.opener.document.getElementById("type_user_name").value;
+  console.log(sessionStorage.getItem("user_id_storage"));
+  document.getElementById('user_id').innerHTML=sessionStorage.getItem("user_id_storage")
+  on_call();
+}
+</script>
+
+
+
+
+<body class="w3-light-grey" onload=start()>
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+
+    <!-- Left Column -->
+    <div class="w3-third">
+
+      <div class="w3-white w3-text-grey w3-card-4">
+
+        <div class="w3-display-container">
+
+          <div class='card-heading'></div><div class='card-img'><img src='Images/test2.jpg' alt='Avatar' class='avatar'></div>
+
+
+          <!-- <img src="Images/test2.jpg" style="width:100%" alt="Avatar"> -->
+          <!-- <div class="w3-display-bottomleft w3-container w3-text-black"> -->
+          <div class="w3-display-bottomleft w3-container w3-text-black">
+            <h2 id="user_name"  >Hemanth Vangala</h2>
+            <p hidden id="user_id">hmnth22</p>
+          </div>
+
+        </div>
+
+        <div class="w3-container">
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-blue"></i><span contentEditable="false" id="Profession">Designer</span><button class= 'main_btn w3-text-blue' onclick=edit() style='font-size:24px'><i class="fa fa-edit w3-ripple margin-left=30px"></i></button></p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-blue"></i><span contentEditable="false" id="Place">London, UK</span></p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-blue"></i><span contentEditable="false" id="Email_id">ex@mail.com</span></p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-blue"></i><span contentEditable="false" id="Phone_Number">1224435534</span></p>
+          <p><i class="fa fa-calendar fa-fw w3-margin-right w3-large w3-text-blue"></i><span contentEditable="false" id="Work_expi">Work Experience :8 Yrs</span></p>
+          <hr>
+
+
+          <div id="Skills"></div>
+          <div id="Languages"></div>
+          <div id="Courses"></div>
+
+        </div>
+      </div><br>
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-twothird">
+
+      <div class="w3-display-container w3-card w3-white w3-margin-bottom" id="Work"></div>
+      <div class="w3-display-container w3-card w3-white w3-margin-bottom" id="Education"></div>
+      <div class="w3-display-container w3-card w3-white w3-margin-bottom" id="Project"></div>
+    <!-- End Right Column -->
+    </div>
+
+<button onclick=edit() id="profession_edit">Edit</button>
+<button onclick=Edit_Left("Skills") id="Skills_edit">Skills Edit</button>
+<button onclick=Edit_Left("Languages") id="Languages_edit">Languages Edit</button>
+<button onclick=Edit_Right("Work") id="Work_edit">Work Edit</button>
+<button onclick=Edit_Right("Projects") id="Projects_edit">Projects Edit</button>
+<button onclick=Edit_Right("Education") id="Education_edit">Education Edit</button>
+<button onclick=Edit_Course("Courses") id="Courses_edit">Courses Edit</button>
+
+<button onclick=submit() id="submit">Submit</button>
+
+
+
+
+
+
+<div id="autofill_form">
+<div class="form-popup" id="Skills_Form" autocomplete="off">
+  <form action="/action_page.php" class="form-container" autocomplete="off">
+    <h1>Add Skill</h1>
+
+    <div class="autocomplete" style="width:280px;">
+    <label for="email"><b>Skill</b></label>
+    <input type="text" placeholder="Enter Skill" name="email" id="New_Skills" required>
+
+  </div>
+
+    <label for="psw"><b>Proficiency</b></label>
+    <input type="number" placeholder="Enter Proficiency" name="psw" id="New_Skills_Pro" required>
+
+    <button type="button" class="btn" onclick=Add_Post("Skills")>Add</button>
+    <button type="button" class="btn cancel" onclick=closeForm("Skills")>Close</button>
+  </form>
+</div>
+
+<div class="form-popup" id="Languages_Form" autocomplete="off">
+  <form action="/action_page.php" class="form-container" autocomplete="off">
+    <h1>Add Language</h1>
+
+    <div class="autocomplete" style="width:280px;">
+      <label for="email"><b>Language</b></label>
+      <input type="text" placeholder="Enter Language" name="email" id="New_Languages" required>
+    </div>
+
+    <label for="psw"><b>Proficiency</b></label>
+    <input type="number" placeholder="Enter Proficiency" name="psw" id="New_Languages_Pro" required>
+
+    <button type="button" class="btn" onclick=Add_Post("Languages")>Add</button>
+    <button type="button" class="btn cancel" onclick=closeForm("Languages")>Close</button>
+  </form>
+</div>
+
+<div class="form-popup" id="Work_Form" autocomplete="off">
+  <form action="/action_page.php" class="form-container" autocomplete="off">
+    <h1>Add Work</h1>
+
+<div class="autocomplete" style="width:280px;">
+    <label for="email"><b>Company</b></label>
+    <input type="text" placeholder="Enter Work" name="email" id="New_Work_Place" required>
+</div>
+
+
+    <label for="psw"><b>From</b></label>
+    <input type="number" placeholder="Enter From" name="psw" id="New_Work_From" required>
+
+
+
+    <label for="psw"><b>To</b></label>
+    <input type="number" placeholder="Enter To" name="psw" id="New_Work_To" required>
+
+
+<div class="autocomplete" style="width:280px;">
+    <label for="email"><b>Description</b></label>
+    <input type="text" placeholder="Enter Description" name="email" id="New_Work_Descritpion" required>
+</div>
+    <button type="button" class="btn" onclick=Add_Post("Work")>Add</button>
+    <button type="button" class="btn cancel" onclick=closeForm("Work")>Close</button>
+  </form>
+</div>
+
+
+
+
+<div class="form-popup" id="Projects_Form" autocomplete="off">
+  <form action="/action_page.php" class="form-container" autocomplete="off">
+    <h1>Add Project</h1>
+
+<div class="autocomplete" style="width:280px;">
+    <label for="email"><b>Project</b></label>
+    <input type="text" placeholder="Enter Project" name="email" id="New_Projects_Place" required>
+</div>
+
+    <label for="psw"><b>From</b></label>
+    <input type="number" placeholder="Enter From" name="psw" id="New_Projects_From" required>
+
+
+
+    <label for="psw"><b>To</b></label>
+    <input type="number" placeholder="Enter To" name="psw" id="New_Projects_To" required>
+
+
+<div class="autocomplete" style="width:280px;">
+    <label for="email"><b>Description</b></label>
+    <input type="text" placeholder="Enter Description" name="email" id="New_Projects_Descritpion" required>
+</div>
+
+    <button type="button" class="btn" onclick=Add_Post("Projects")>Add</button>
+    <button type="button" class="btn cancel" onclick=closeForm("Projects")>Close</button>
+  </form>
+</div>
+
+<div class="form-popup" id="Education_Form">
+  <form action="/action_page.php" class="form-container" autocomplete="off">
+    <h1>Add Education</h1>
+
+<div class="autocomplete" style="width:280px;" >
+    <label for="email"><b>Collage</b></label>
+    <input type="text" placeholder="Enter Work" name="email" id="New_Education_Place" required>
+</div>
+
+    <label for="psw"><b>From</b></label>
+    <input type="number" placeholder="Enter From" name="psw" id="New_Education_From" required>
+
+
+
+    <label for="psw"><b>To</b></label>
+    <input type="number" placeholder="Enter To" name="psw" id="New_Education_To" required>
+
+
+<div class="autocomplete" style="width:280px;">
+    <label for="email"><b>Description</b></label>
+    <input type="text" placeholder="Enter Description" name="email" id="New_Education_Descritpion" required>
+</div>
+
+    <button type="button" class="btn" onclick=Add_Post("Education")>Add</button>
+    <button type="button" class="btn cancel" onclick=closeForm("Education")>Close</button>
+  </form>
+</div>
+
+
+<div class="form-popup" id="Courses_Form">
+  <form action="/action_page.php" class="form-container" autocomplete="off">
+    <h1>Add Courses</h1>
+
+    <div class="autocomplete" style="width:280px;">
+      <label for="email"><b>Courses</b></label>
+      <input type="text" placeholder="Enter Courses" name="email" id="New_Courses" required>
+    </div>
+
+    <button type="button" class="btn" onclick=Add_Course("Courses")>Add</button>
+    <button type="button" class="btn cancel" onclick=closeForm("Courses")>Close</button>
+  </form>
+</div>
+
+
+</div>
+  <!-- End Grid -->
+  </div>
+
+  <!-- End Page Container -->
+</div>
+
+
+
+<script>
+function autocomplete(inp, arr) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+          b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+  });
+}
+
+/*An array containing all the country names in the world:*/
+var Courses_arr = ["C++","Java","MongoDB","JavaScript","Python","R","Machine Learning","Tensorflow","Java","SQL","Android","SDK XML","Html","CSS","JavaScript","JQuery","ASP .NET MVC","HTML","CSS","JavaScript","SQL","Microsoft Excel","Matlab","JavaScript","Hadoop","Spark","SQL","Machine Learning"]
+var lang_arr = ["Telugu","Hindi","German","French","Tamil","Malayalam"]
+var skills_arr = ["C++","Java","MongoDB","JavaScript","Python","R","Machine Learning","Tensorflow","Java","SQL","Android","SDK XML","Html","CSS","JavaScript","JQuery","ASP .NET MVC","HTML","CSS","JavaScript","SQL","Microsoft Excel","Matlab","JavaScript","Hadoop","Spark","SQL","Machine Learning"]
+var edu_arr = ["IIT Rookee","IIT Delhi","IIT Madras","IIT Kanpur","IIT Bombay","IIT Guwahati","IIT Kharagpur","IIT Mandi","IIT Ropar","IIT Hyderabad","IIT Tirupati","IIT Palakkad","IIT Gandhinagar","IIT Jodhpur","IIT Indore","IIT Patna","IIT Bhubhaneswar","IIT Dharwad","IIT Bhilai","IIT Goa","IIT Jammu","IIT Dhanbad","IIT Varanasi","IIIT Hyderabad","IIIT Bangalore","IIIT Lucknow","IIIT Allahabad","IIIT Gwalior","NIT Calicut","NIT Trichy","NIT Warangal","NIT Surat","NIT Nagpur","NIT Rourkela","BITS Pilani","BITS Mesra","Vellore Institute of Technology"]
+var des_arr = ["Computer Engineering","Mechanical Engineering","Electrical Engineering","Civil Engineering","Metallurgy Engineering","Chemical Engineering","Electronics Engineering"]
+var lorem_arr=["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]
+var project_arr = ["Default"]
+var work_arr = ["Microsoft","Adobe","Google","Facebook","Flipkart","Amazon","Uber","DE Shaw","American Express","Visa","Societe Genarale","Mercari","Goldman Sachs","Schlumberger","JP Morgan & Co","Morgan Stanley","Samsung","LinkedIn","Texas Instruments","ITC Limited","HSBC","Intuit","GE Digital","Reliance Jio","Qualcomm","Codenation","Infosys","Myntra","Oracle","Sprinklr","Tesco"
+];
+
+/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+autocomplete(document.getElementById("New_Courses"), Courses_arr);
+autocomplete(document.getElementById("New_Languages"), lang_arr);
+autocomplete(document.getElementById("New_Skills"), skills_arr);
+
+
+autocomplete(document.getElementById("New_Education_Place"), edu_arr);
+autocomplete(document.getElementById("New_Education_Descritpion"), des_arr);
+
+autocomplete(document.getElementById("New_Projects_Place"), project_arr);
+autocomplete(document.getElementById("New_Projects_Descritpion"), lorem_arr);
+
+autocomplete(document.getElementById("New_Work_Place"), work_arr);
+autocomplete(document.getElementById("New_Work_Descritpion"), lorem_arr);
+
+
+</script>
+
+
+</body>
+</html>

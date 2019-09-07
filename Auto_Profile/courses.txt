@@ -1,0 +1,7 @@
+C++,Java,MongoDB,JavaScript
+Python,R,Machine Learning,TensorFlow
+Java,SQL,Android SDK,XML
+HTML,CSS,JavaScript,jQuery
+ASP .NET MVC,HTML,CSS,JavaScript
+SQL,Excel,MATLAB,JavaScript
+Hadoop,Apache Spark,NoSQL,Machine Learning

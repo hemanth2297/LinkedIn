@@ -1,0 +1,154 @@
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+.icon_btn {
+  background: transparent;
+  border: none !important;
+  margin-left: 100px;
+}
+.edit_btn {
+  background: transparent;
+  border: none !important;
+  margin-left: 1px;
+}
+
+.main_btn {
+  background: transparent;
+  border: none !important;
+  margin-left: 90px;
+}
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+.avatar {
+  vertical-align: middle;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  top: -50px;
+  margin-bottom: -50px;
+  /* object-fit: cover; */
+}
+.card-heading{
+  background-image: url("linkedin.png");
+  -webkit-background-size:cover;
+  background-size: cover;
+  height: 150px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=number] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=number]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;}
+
+
+
+
+  .autocomplete {
+    position: relative;
+    display: inline-block;
+  }
+
+  input {
+    border: 1px solid transparent;
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  input[type=text] {
+    background-color: #f1f1f1;
+    width: 100%;
+  }
+
+  input[type=submit] {
+    background-color: DodgerBlue;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+
+  .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+  }
+
+  /*when hovering an item:*/
+  .autocomplete-items div:hover {
+    background-color: #e9e9e9;
+  }
+
+  /*when navigating through the items using the arrow keys:*/
+  .autocomplete-active {
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+  }

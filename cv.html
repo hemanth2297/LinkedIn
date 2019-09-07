@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/user_fill.css">
+
+<script type="text/javascript" src=js/get_by_user_onload.js></script>
+<script type="text/javascript" src=js/Edit.js></script>
+<script type="text/javascript" src=js/Add_Skill_Language.js></script>
+<script type="text/javascript" src=js/test.js></script>
+<script type="text/javascript">
+
+function start()
+{
+  //var name_by_user=parent.window.opener.document.getElementById("type_user_name").value;
+  console.log(sessionStorage.getItem("user_id_storage"));
+  document.getElementById('user_id').innerHTML=sessionStorage.getItem("user_id_storage")
+  on_call();
+}
+</script>
+
+
+
+<body class="w3-light-grey" onload=start()>
+
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+
+    <!-- Left Column -->
+    <div class="w3-third">
+
+      <div class="w3-white w3-text-grey w3-card-4">
+
+        <div class="w3-display-container">
+          <div class='card-heading'></div><div class='card-img'><img src='Images/test2.jpg' alt='Avatar' class='avatar'></div>
+
+
+          <!-- <img src="Images/test2.jpg" style="width:100%" alt="Avatar"> -->
+          <!-- <div class="w3-display-bottomleft w3-container w3-text-black"> -->
+          <div class="w3-display-bottomleft w3-container w3-text-black">
+            <h2 id="user_name"  >Hemanth Vangala</h2>
+            <p hidden id="user_id">hmnth22</p>
+          </div>
+          <!-- </div> -->
+        </div>
+
+        <div class="w3-container">
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-blue"></i><span contentEditable="false" id="Profession">Designer</span><button class= 'main_btn w3-text-blue' onclick=edit() style='font-size:24px'><i class="fa fa-edit w3-ripple margin-left=30px"></i></button></p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-blue"></i><span contentEditable="false" id="Place">London, UK</span></p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-blue"></i><span contentEditable="false" id="Email_id">ex@mail.com</span></p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-blue"></i><span contentEditable="false" id="Phone_Number">1224435534</span></p>
+          <p><i class="fa fa-calendar fa-fw w3-margin-right w3-large w3-text-blue"></i><span contentEditable="false" id="Work_expi">Work Experience :8 Yrs</span></p>
+          <hr>
+
+
+          <div id="Skills"></div>
+          <div id="Languages"></div>
+          <div id="Courses"></div>
+
+        </div>
+      </div><br>
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-twothird">
+
+      <div class="w3-display-container w3-card w3-white w3-margin-bottom" id="Work"></div>
+      <div class="w3-display-container w3-card w3-white w3-margin-bottom" id="Education"></div>
+      <div class="w3-display-container w3-card w3-white w3-margin-bottom" id="Project"></div>
+    <!-- End Right Column -->
+    </div>
+
+<button onclick=edit() id="profession_edit">Edit</button>
+<button onclick=Edit_Left("Skills") id="Skills_edit">Skills Edit</button>
+<button onclick=Edit_Left("Languages") id="Languages_edit">Languages Edit</button>
+<button onclick=Edit_Right("Work") id="Work_edit">Work Edit</button>
+<button onclick=Edit_Right("Projects") id="Projects_edit">Projects Edit</button>
+<button onclick=Edit_Right("Education") id="Education_edit">Education Edit</button>
+<button onclick=Edit_Course("Courses") id="Courses_edit">Courses Edit</button>
+
+<button onclick=submit() id="submit">Submit</button>
+
+<div class="form-popup" id="Skills_Form">
+  <form action="/action_page.php" class="form-container">
+    <h1>Add Skill</h1>
+
+    <label for="email"><b>Skill</b></label>
+    <input type="text" placeholder="Enter Skill" name="email" id="New_Skills" required>
+
+    <label for="psw"><b>Proficiency</b></label>
+    <input type="number" placeholder="Enter Proficiency" name="psw" id="New_Skills_Pro" required>
+
+    <button type="button" class="btn" onclick=Add_Post("Skills")>Add</button>
+    <button type="button" class="btn cancel" onclick=closeForm("Skills")>Close</button>
+  </form>
+</div>
+
+<div class="form-popup" id="Languages_Form">
+  <form action="/action_page.php" class="form-container">
+    <h1>Add Language</h1>
+
+    <label for="email"><b>Language</b></label>
+    <input type="text" placeholder="Enter Language" name="email" id="New_Languages" required>
+
+    <label for="psw"><b>Proficiency</b></label>
+    <input type="number" placeholder="Enter Proficiency" name="psw" id="New_Languages_Pro" required>
+
+    <button type="button" class="btn" onclick=Add_Post("Languages")>Add</button>
+    <button type="button" class="btn cancel" onclick=closeForm("Languages")>Close</button>
+  </form>
+</div>
+
+<div class="form-popup" id="Work_Form">
+  <form action="/action_page.php" class="form-container">
+    <h1>Add Work</h1>
+
+    <label for="email"><b>Company</b></label>
+    <input type="text" placeholder="Enter Work" name="email" id="New_Work_Place" required>
+
+    <label for="psw"><b>From</b></label>
+    <input type="number" placeholder="Enter From" name="psw" id="New_Work_From" required>
+
+    <label for="psw"><b>To</b></label>
+    <input type="number" placeholder="Enter To" name="psw" id="New_Work_To" required>
+
+    <label for="email"><b>Description</b></label>
+    <input type="text" placeholder="Enter Description" name="email" id="New_Work_Descritpion" required>
+
+    <button type="button" class="btn" onclick=Add_Post("Work")>Add</button>
+    <button type="button" class="btn cancel" onclick=closeForm("Work")>Close</button>
+  </form>
+</div>
+
+
+
+
+<div class="form-popup" id="Projects_Form">
+  <form action="/action_page.php" class="form-container">
+    <h1>Add Project</h1>
+
+    <label for="email"><b>Project</b></label>
+    <input type="text" placeholder="Enter Project" name="email" id="New_Projects_Place" required>
+
+    <label for="psw"><b>From</b></label>
+    <input type="number" placeholder="Enter From" name="psw" id="New_Projects_From" required>
+
+    <label for="psw"><b>To</b></label>
+    <input type="number" placeholder="Enter To" name="psw" id="New_Projects_To" required>
+
+    <label for="email"><b>Description</b></label>
+    <input type="text" placeholder="Enter Description" name="email" id="New_Projects_Descritpion" required>
+
+    <button type="button" class="btn" onclick=Add_Post("Projects")>Add</button>
+    <button type="button" class="btn cancel" onclick=closeForm("Projects")>Close</button>
+  </form>
+</div>
+
+<div class="form-popup" id="Education_Form">
+  <form action="/action_page.php" class="form-container">
+    <h1>Add Education</h1>
+
+    <label for="email"><b>Collage</b></label>
+    <input type="text" placeholder="Enter Work" name="email" id="New_Education_Place" required>
+
+    <label for="psw"><b>From</b></label>
+    <input type="number" placeholder="Enter From" name="psw" id="New_Education_From" required>
+
+    <label for="psw"><b>To</b></label>
+    <input type="number" placeholder="Enter To" name="psw" id="New_Education_To" required>
+
+    <label for="email"><b>Description</b></label>
+    <input type="text" placeholder="Enter Description" name="email" id="New_Education_Descritpion" required>
+
+    <button type="button" class="btn" onclick=Add_Post("Education")>Add</button>
+    <button type="button" class="btn cancel" onclick=closeForm("Education")>Close</button>
+  </form>
+</div>
+
+
+<div class="form-popup" id="Courses_Form">
+  <form action="/action_page.php" class="form-container">
+    <h1>Add Courses</h1>
+
+    <label for="email"><b>Courses</b></label>
+    <input type="text" placeholder="Enter Courses" name="email" id="New_Courses" required>
+
+    <button type="button" class="btn" onclick=Add_Course("Courses")>Add</button>
+    <button type="button" class="btn cancel" onclick=closeForm("Courses")>Close</button>
+  </form>
+</div>
+  <!-- End Grid -->
+  </div>
+
+  <!-- End Page Container -->
+</div>
+
+</body>
+</html>
